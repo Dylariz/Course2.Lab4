@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Lab4
 {
-    public partial class Form1 : Form
+    public partial class ChartViewer : Form
     {
-        public Form1()
+        public ChartViewer()
         {
             InitializeComponent();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            SimpleA algosA = new SimpleA();
+            label1.Text = $"Answer: {algosA.Start(int.Parse(inputTextBox.Text))}";
         }
     }
 }
