@@ -35,6 +35,7 @@
     <ItemGroup>
         <Reference Include="System" />
         <Reference Include="System.Core" />
+        <Reference Include="System.Windows.Forms.DataVisualization" />
         <Reference Include="System.Xml.Linq" />
         <Reference Include="System.Data.DataSetExtensions" />
         <Reference Include="Microsoft.CSharp" />
@@ -53,8 +54,10 @@
             <DependentUpon>ChartViewer.cs</DependentUpon>
         </Compile>
         <Compile Include="Program.cs" />
+        <Compile Include="ProgramB.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SimpleA.cs" />
+        <Compile Include="ProgramA.cs" />
+        <Compile Include="TimeTests.cs" />
         <EmbeddedResource Include="ChartViewer.resx">
           <DependentUpon>ChartViewer.cs</DependentUpon>
         </EmbeddedResource>

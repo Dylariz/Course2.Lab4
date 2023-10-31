@@ -29,56 +29,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.inputTextBox = new System.Windows.Forms.RichTextBox();
-            this.startButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.totalTimeLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // inputTextBox
+            // mainChart
             // 
-            this.inputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.inputTextBox.Location = new System.Drawing.Point(61, 67);
-            this.inputTextBox.Name = "inputTextBox";
-            this.inputTextBox.Size = new System.Drawing.Size(188, 45);
-            this.inputTextBox.TabIndex = 0;
-            this.inputTextBox.Text = "";
+            chartArea1.Name = "ChartArea1";
+            this.mainChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.mainChart.Legends.Add(legend1);
+            this.mainChart.Location = new System.Drawing.Point(47, 32);
+            this.mainChart.Name = "mainChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.mainChart.Series.Add(series1);
+            this.mainChart.Size = new System.Drawing.Size(1205, 677);
+            this.mainChart.TabIndex = 3;
+            this.mainChart.Text = "chart1";
             // 
-            // startButton
+            // totalTimeLabel
             // 
-            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.startButton.Location = new System.Drawing.Point(61, 118);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(188, 36);
-            this.startButton.TabIndex = 1;
-            this.startButton.Text = "Запуск";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(61, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Answer: ";
+            this.totalTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalTimeLabel.Location = new System.Drawing.Point(47, 728);
+            this.totalTimeLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.totalTimeLabel.Name = "totalTimeLabel";
+            this.totalTimeLabel.Size = new System.Drawing.Size(1205, 45);
+            this.totalTimeLabel.TabIndex = 4;
+            this.totalTimeLabel.Text = "Время затраченное на ассинхронное выполнение всех задач: ";
             // 
             // ChartViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 240);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.startButton);
-            this.Controls.Add(this.inputTextBox);
+            this.ClientSize = new System.Drawing.Size(1304, 788);
+            this.Controls.Add(this.totalTimeLabel);
+            this.Controls.Add(this.mainChart);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ChartViewer";
             this.Text = "ChartViewer";
+            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.RichTextBox inputTextBox;
-        private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label totalTimeLabel;
+
+        private System.Windows.Forms.DataVisualization.Charting.Chart mainChart;
 
         #endregion
     }
