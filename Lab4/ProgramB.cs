@@ -1,47 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Lab4
 {
     public static class ProgramB
     {
+
         public static int SimpleB(int n)
         {
-            int[] heights = new int[n];
+            Ball[] balls = new Ball[n];
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                balls[i] = new Ball(random.Next(4, 30));
+            }
+
+            int count = 0;
+
+            for (int i = 0; i < 7; i++) // симулируем неделю
+            {
+                for (int j = 0; j < 24; j++)
+                {
+                    for (int k = 0; k < 60; k++)
+                    {
+                        for (int l = 0; l < 60; l++)
+                        {
+                            List<int> heights = new List<int>();
+
+                            for (int t = 0; t < n; t++)
+                            {
+                                if (balls[t].Direction == -1) // падение мячика
+                                {
+                                    balls[t].Height--;
+                                }
+                                else
+                                {
+                                    balls[t].Height++;
+                                }
+                     
+
+                                if (balls[t].Height == 0) // отскок мячика
+                                {
+                                    balls[t].Direction = 1;
+                                }
+                                else if(balls[t].Height == balls[t].StartHeight) // мячик вернулся на исходную высоту
+                                {
+                                    balls[t].Direction = -1;
+                                }
+
+                                if (!heights.Contains(balls[t].Height))
+                                {
+                                    heights.Add(balls[t].Height);
+                                }
+                            }
+
+                            if (heights.Count == 1)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            return count;
+        }
+        
+
+        public static int StrongB(int n)
+        {
+            Ball[] balls = new Ball[n];
             Random random = new Random();
 
             for (int i = 0; i < n; i++)
             {
-                heights[i] = random.Next(50, 1000);
+                balls[i] = new Ball(random.Next(4, 30));
             }
-
-            int count = 0; // количество мячиков на одной высоте
+            
+            int count = 0;
 
             for (int i = 0; i < 7 * 24 * 60 * 60; i++) // симулируем неделю
             {
-                Dictionary<int, int>
-                    heightsCount =
-                        new Dictionary<int, int>(); // словарь для подсчета количества мячиков на каждой высоте
-
                 for (int j = 0; j < n; j++)
                 {
-                    heights[j]--; // падение мячика
-
-                    if (heights[j] == 0) // отскок мячика
+                    if (balls[j].Direction == -1) // падение мячика
                     {
-                        heights[j] = random.Next(5, 11);
+                        balls[j].Height--;
                     }
-
-                    if (!heightsCount.ContainsKey(heights[j]))
+                    else
                     {
-                        heightsCount[heights[j]] = 0;
+                        balls[j].Height++;
                     }
+                     
 
-                    heightsCount[heights[j]]++;
-
-                    if (heightsCount[heights[j]] == n) // все мячики на одной высоте
+                    if (balls[j].Height == 0) // отскок мячика
                     {
-                        count++;
+                        balls[j].Direction = 1;
+                    }
+                    else if(balls[j].Height == balls[j].StartHeight) // мячик вернулся на исходную высоту
+                    {
+                        balls[j].Direction = -1;
+                    }
+                }
+                
+                int prevHeight = balls[0].Height;
+                for (int j = 0; j < n; j++)
+                {
+                    if (j != 0)
+                    {
+                        if (balls[j].Height == prevHeight) // мячик на той же высоте, что и предыдущий
+                        {
+                            if (j == n - 1)
+                            {
+                                count++;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        prevHeight = balls[j].Height;
                     }
                 }
             }
@@ -49,33 +129,18 @@ namespace Lab4
             return count;
         }
 
-        public static int StrongB(int n)
+        public class Ball
         {
-            int[] heights = new int[n];
-            Random random = new Random();
+            public int StartHeight { get; }
+            public int Height { get; set; }
+            public int Direction { get; set; } // 1 - вверх, -1 - вниз
             
-            for (int i = 0; i < n; i++)
+            public Ball(int startHeight)
             {
-                heights[i] = random.Next(50, 500);
+                StartHeight = startHeight;
+                Height = startHeight;
+                Direction = -1;
             }
-            
-            int lcm = heights[0];
-            for (int i = 1; i < n; i++)
-            {
-                lcm = lcm * heights[i] / Gcd(lcm, heights[i]);
-            }
-            
-            int count = (int)Math.Ceiling(7.0 / lcm);
-
-            return count;
-        }
-
-        static int Gcd(int a, int b)
-        {
-            while (b != 0)
-                (a, b) = (b, a % b);
-            
-            return a;
         }
     }
 }
