@@ -6,7 +6,6 @@ namespace Lab4
 {
     public static class ProgramB
     {
-
         public static int SimpleB(int n)
         {
             Ball[] balls = new Ball[n];
@@ -27,47 +26,34 @@ namespace Lab4
                         for (int l = 0; l < 60; l++)
                         {
                             List<int> heights = new List<int>();
-
                             for (int t = 0; t < n; t++)
                             {
-                                if (balls[t].Direction == -1) // падение мячика
-                                {
-                                    balls[t].Height--;
-                                }
+                                if (balls[t].Direction == -1) 
+                                    balls[t].Height--; // движение мячика
+                                
                                 else
-                                {
-                                    balls[t].Height++;
-                                }
-                     
+                                    balls[t].Height++; // движение мячика
 
                                 if (balls[t].Height == 0) // отскок мячика
-                                {
                                     balls[t].Direction = 1;
-                                }
-                                else if(balls[t].Height == balls[t].StartHeight) // мячик вернулся на исходную высоту
-                                {
+                                
+                                else if (balls[t].Height == balls[t].StartHeight) // мячик вернулся на исходную высоту
                                     balls[t].Direction = -1;
-                                }
 
                                 if (!heights.Contains(balls[t].Height))
-                                {
                                     heights.Add(balls[t].Height);
-                                }
                             }
 
                             if (heights.Count == 1)
-                            {
                                 count++;
-                            }
                         }
                     }
                 }
-                
             }
 
             return count;
         }
-        
+
 
         public static int StrongB(int n)
         {
@@ -78,33 +64,23 @@ namespace Lab4
             {
                 balls[i] = new Ball(random.Next(4, 30));
             }
-            
-            int count = 0;
 
+            int count = 0;
             for (int i = 0; i < 7 * 24 * 60 * 60; i++) // симулируем неделю
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (balls[j].Direction == -1) // падение мячика
-                    {
-                        balls[j].Height--;
-                    }
+                    if (balls[j].Direction == -1) 
+                        balls[j].Height--; // движение мячика
                     else
-                    {
-                        balls[j].Height++;
-                    }
-                     
-
+                        balls[j].Height++; // движение мячика
+                    
                     if (balls[j].Height == 0) // отскок мячика
-                    {
                         balls[j].Direction = 1;
-                    }
-                    else if(balls[j].Height == balls[j].StartHeight) // мячик вернулся на исходную высоту
-                    {
+                    else if (balls[j].Height == balls[j].StartHeight) // мячик вернулся на исходную высоту
                         balls[j].Direction = -1;
-                    }
                 }
-                
+
                 int prevHeight = balls[0].Height;
                 for (int j = 0; j < n; j++)
                 {
@@ -113,19 +89,17 @@ namespace Lab4
                         if (balls[j].Height == prevHeight) // мячик на той же высоте, что и предыдущий
                         {
                             if (j == n - 1)
-                            {
                                 count++;
-                            }
                         }
                         else
                         {
                             break;
                         }
+
                         prevHeight = balls[j].Height;
                     }
                 }
             }
-
             return count;
         }
 
@@ -134,7 +108,7 @@ namespace Lab4
             public int StartHeight { get; }
             public int Height { get; set; }
             public int Direction { get; set; } // 1 - вверх, -1 - вниз
-            
+
             public Ball(int startHeight)
             {
                 StartHeight = startHeight;

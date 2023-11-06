@@ -27,7 +27,5 @@ namespace Lab4
             watch.Stop();
             return watch.ElapsedMilliseconds;
         }
-        
-        
     }
 }
