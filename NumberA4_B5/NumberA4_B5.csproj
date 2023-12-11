@@ -6,8 +6,8 @@
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <ProjectGuid>{AB776878-6754-44D6-89AC-7B573703CB3B}</ProjectGuid>
         <OutputType>WinExe</OutputType>
-        <RootNamespace>Lab4</RootNamespace>
-        <AssemblyName>Lab4</AssemblyName>
+        <RootNamespace>NumberA4_B5</RootNamespace>
+        <AssemblyName>NumberA4_B5</AssemblyName>
         <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

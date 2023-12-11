@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace Lab4
+namespace NumberA4_B5
 {
     public static class ProgramB
     {
-        public static int SimpleB(int n)
+        public static int SlowB(int n)
         {
             Ball[] balls = new Ball[n];
             Random random = new Random();
@@ -55,7 +54,7 @@ namespace Lab4
         }
 
 
-        public static int StrongB(int n)
+        public static int FastB(int n)
         {
             Ball[] balls = new Ball[n];
             Random random = new Random();

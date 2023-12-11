@@ -1,8 +1,8 @@
-namespace Lab4
+namespace NumberA4_B5
 {
     public static class ProgramA
     {
-        public static int SimpleA(int n)
+        public static int SlowA(int n)
         {
             int count = 0; // счетчик количества магических квадратов
 

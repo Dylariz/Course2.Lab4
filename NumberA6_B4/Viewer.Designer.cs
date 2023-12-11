@@ -1,6 +1,6 @@
-﻿namespace Lab4
+﻿namespace NumberA6_B4
 {
-    partial class ChartViewer
+    partial class Viewer
     {
         /// <summary>
         /// Required designer variable.
@@ -43,35 +43,35 @@
             this.mainChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.mainChart.Legends.Add(legend1);
-            this.mainChart.Location = new System.Drawing.Point(24, 17);
+            this.mainChart.Location = new System.Drawing.Point(11, 36);
             this.mainChart.Margin = new System.Windows.Forms.Padding(2);
             this.mainChart.Name = "mainChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.mainChart.Series.Add(series1);
-            this.mainChart.Size = new System.Drawing.Size(602, 352);
+            this.mainChart.Size = new System.Drawing.Size(1038, 360);
             this.mainChart.TabIndex = 3;
             this.mainChart.Text = "chart1";
             // 
             // totalTimeLabel
             // 
             this.totalTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.totalTimeLabel.Location = new System.Drawing.Point(24, 379);
+            this.totalTimeLabel.Location = new System.Drawing.Point(241, 9);
             this.totalTimeLabel.Name = "totalTimeLabel";
-            this.totalTimeLabel.Size = new System.Drawing.Size(602, 23);
+            this.totalTimeLabel.Size = new System.Drawing.Size(574, 23);
             this.totalTimeLabel.TabIndex = 4;
-            this.totalTimeLabel.Text = "Время затраченное на ассинхронное выполнение всех задач: ";
+            this.totalTimeLabel.Text = "Общее время выполнения в ассинхронном режиме заняло: ";
             // 
-            // ChartViewer
+            // Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 410);
+            this.ClientSize = new System.Drawing.Size(1058, 407);
             this.Controls.Add(this.totalTimeLabel);
             this.Controls.Add(this.mainChart);
-            this.Name = "ChartViewer";
-            this.Text = "ChartViewer";
+            this.Name = "Viewer";
+            this.Text = "Viewer";
             ((System.ComponentModel.ISupportInitialize)(this.mainChart)).EndInit();
             this.ResumeLayout(false);
         }
